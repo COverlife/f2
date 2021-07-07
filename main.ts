@@ -22,6 +22,9 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.greenOuterNorthEast, func
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.greenOuterSouth2, function (sprite, location) {
     mySprite.setPosition(230, 225)
 })
+info.onCountdownEnd(function () {
+    game.over(false)
+})
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.greenOuterNorth2, function (sprite, location) {
     mySprite.setPosition(230, 225)
 })
