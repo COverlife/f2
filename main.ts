@@ -1,11 +1,34 @@
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.greenOuterSouthWest, function (sprite, location) {
     mySprite.setPosition(230, 225)
 })
+controller.B.onEvent(ControllerButtonEvent.Pressed, function () {
+    projectile = sprites.createProjectileFromSprite(img`
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . 2 2 2 2 . . . 
+        . . . . . . . 2 2 1 1 1 1 2 . . 
+        . . . . 2 2 3 3 1 1 1 1 1 1 . . 
+        . . 3 3 3 3 1 1 1 1 1 1 1 1 . . 
+        . . 1 1 1 1 1 1 1 1 1 1 1 1 . . 
+        . . 3 3 2 2 3 1 1 1 1 1 1 1 . . 
+        . . . . . . 2 2 3 1 1 1 1 2 . . 
+        . . . . . . . . . 2 2 2 2 . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        . . . . . . . . . . . . . . . . 
+        `, mySprite, 0, -100)
+})
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.greenInnerSouthEast, function (sprite, location) {
     mySprite.setPosition(230, 225)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.greenOuterEast0, function (sprite, location) {
     mySprite.setPosition(230, 225)
+})
+controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
+    controller.moveSprite(mySprite, 25, 25)
 })
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.greenOuterNorthWest, function (sprite, location) {
     mySprite.setPosition(230, 225)
@@ -31,6 +54,9 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.greenOuterNorth2, functio
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.greenOuterEast2, function (sprite, location) {
     mySprite.setPosition(230, 225)
 })
+controller.A.onEvent(ControllerButtonEvent.Released, function () {
+    controller.moveSprite(mySprite, 100, 100)
+})
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.greenOuterEast1, function (sprite, location) {
     mySprite.setPosition(230, 225)
 })
@@ -46,9 +72,13 @@ scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.greenOuterSouthEast, func
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.greenOuterWest2, function (sprite, location) {
     mySprite.setPosition(230, 225)
 })
+scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.stairLarge, function (sprite, location) {
+    game.over(true)
+})
 scene.onOverlapTile(SpriteKind.Player, sprites.dungeon.greenOuterNorth1, function (sprite, location) {
     mySprite.setPosition(230, 225)
 })
+let projectile: Sprite = null
 let mySprite: Sprite = null
 mySprite = sprites.create(img`
     ........................
